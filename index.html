@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<!--Import Google Icon Font-->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+
+		<!--Import materialize.css-->
+		<!-- Compiled and minified CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+
+	<body>
+		<main class="valign-wrapper" style="min-height: 100vh">
+			<div class="container">
+				<div class="row grey lighten-4 z-depth-5">
+					<div class="col s12">
+						<h1 class="center-align">Tip Calculator</h1>
+						<div class="row">
+							<div class="input-field col s2 center-align">
+								<i class="material-icons medium">attach_money</i>
+							</div>
+							<div class="input-field col s6">
+								<!-- add input with decimals -->
+								<input
+									id="tip-amount"
+									type="number"
+									class="validate s4"
+									step=".01"
+								/>
+								<label for="tip-amount">Amount</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s2 center-align">
+								<i class="material-icons medium">people</i>
+							</div>
+							<div class="input-field col s6">
+								<input
+									id="tip-people"
+									type="number"
+									class="validate s4"
+									value="1"
+								/>
+								<label for="tip-people"># of People</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s2 center-align">
+								<i class="material-icons medium">star</i>
+							</div>
+							<div class="col s10">
+								<div class="input-field col s10">
+									<label>
+										<input
+											name="tip-percentage"
+											id="tip-percentage"
+											type="radio"
+											value="skip"
+										/>
+										<span>Skip</span>
+									</label>
+								</div>
+								<div class="input-field col s10">
+									<label>
+										<input
+											name="tip-percentage"
+											id="tip-percentage"
+											type="radio"
+											value="15"
+										/>
+										<span>15</span>
+									</label>
+								</div>
+								<div class="input-field col s10">
+									<label>
+										<input
+											name="tip-percentage"
+											id="tip-percentage"
+											type="radio"
+											value="18"
+										/>
+										<span>18</span>
+									</label>
+								</div>
+								<div class="input-field col s10">
+									<label>
+										<input
+											name="tip-percentage"
+											id="tip-percentage"
+											type="radio"
+											value="21"
+										/>
+										<span>21</span>
+									</label>
+								</div>
+								<div class="input-field col s10">
+									<label>
+										<input
+											name="tip-percentage"
+											id="tip-percentage"
+											type="radio"
+											value="custom"
+										/>
+										<span>Custom</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<br />
+						<div id="tip-custom-container" class="row hide">
+							<div class="input-field col s2 center-align">
+								<i class="material-icons medium">account_balance_wallet</i>
+							</div>
+							<div class="input-field col s6">
+								<input id="tip-custom" type="number" class="validate s4" />
+								<label for="tip-custom">Custom Tip (in dollars)</label>
+							</div>
+						</div>
+						<div class="divider"></div>
+						<br />
+						<div class="row center-align">
+							<button
+								class="waves-effect waves-light btn btn-large grey"
+								id="tip-calculate"
+								>Calcular</button
+							>
+						</div>
+						<div class="divider"></div>
+						<br />
+						<div class="row">
+							<div class="flow-text center-align">
+								<span id="total-output"></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="flow-text center-align">
+								<span id="per-person-output"></span>
+							</div>
+						</div>
+						<br />
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- Compiled and minified JavaScript -->
+		<script src="tip-calculator.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	</body>
+</html>
