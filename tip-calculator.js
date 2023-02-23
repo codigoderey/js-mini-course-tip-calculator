@@ -5,12 +5,7 @@ let customTip = document.querySelector("#tip-custom");
 let customTipContainer = document.querySelector("#tip-custom-container");
 let submitButton = document.querySelector("#tip-calculate");
 
-const formatter = new Intl.NumberFormat("en-US", {
-	style: "currency",
-	currency: "USD"
-});
-
-// set an onchange function for tipOptions
+// set an onchange function for showing or hide custom tip input
 for (let tip of tipOptions) {
 	tip.addEventListener("change", function () {
 		if (tip.value === "custom") {
@@ -28,15 +23,15 @@ submitButton.addEventListener("click", function () {
 		return;
 	}
 
+	// verify if tip is selected
 	let checkedTip;
-
 	for (let tip of tipOptions) {
 		if (tip.checked) {
 			checkedTip = tip.value;
 			break;
 		}
 	}
-
+	// if no tip is selected, check if custom tip is filled out
 	if (!checkedTip) {
 		alert(
 			"Please select a tip percentage, select Skip or add an amount in dollars or select Skip."
@@ -46,15 +41,24 @@ submitButton.addEventListener("click", function () {
 
 	// calculate tip
 	let tipAmount =
+		// if custom tip is selected or skip, use custom tip value that can also be $0
 		checkedTip === "custom" || checkedTip === "skip"
 			? Number(customTip.value)
 			: (amount.value * checkedTip) / 100;
 
+	// calculate total amount and amount per person
 	let total = Number(amount.value) + tipAmount;
 	let perPerson = total / people.value;
 
+	// display results
 	document.querySelector("#total-output").innerHTML =
 		"Total: " + formatter.format(total);
 	document.querySelector("#per-person-output").innerHTML =
 		"Por persona: " + formatter.format(perPerson);
+});
+
+// function to format currency
+const formatter = new Intl.NumberFormat("en-US", {
+	style: "currency",
+	currency: "USD"
 });
